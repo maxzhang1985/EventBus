@@ -14,11 +14,15 @@ namespace EventBus
 
         public static void ResolveAssembly(string path)
         {
-            DirectoryInfo dir = new DirectoryInfo(path);
-            //if (!dir.Exists) dir = new DirectoryInfo(HostingEnvronment.GetMapPath("/"));
-            var searchFiles = dir.GetFiles("*.dll", SearchOption.AllDirectories);
-            var TypeList = searchFiles.SelectMany(f => AppDomain.CurrentDomain.Load(AssemblyName.GetAssemblyName(f.FullName)).GetTypes());
-            types = TypeList;
+            //run once
+            if (types == null)
+            {
+                DirectoryInfo dir = new DirectoryInfo(path);
+                //if (!dir.Exists) dir = new DirectoryInfo(HostingEnvronment.GetMapPath("/"));
+                var searchFiles = dir.GetFiles("*.dll", SearchOption.AllDirectories);
+                var TypeList = searchFiles.SelectMany(f => AppDomain.CurrentDomain.Load(AssemblyName.GetAssemblyName(f.FullName)).GetTypes());
+                types = TypeList;
+            }
         }
 
         public static IEnumerable<Type> TypesOf(Type type)

@@ -1,19 +1,24 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
+using EventBus.Demo;
 
 namespace EventBus
 {
-    [TestClass]
+    
     public class UnitTest1
     {
-        [TestMethod]
+        [TestCase]
         public void TestMethod1()
         {
 
-            AssemblyLoader.ResolveAssembly(AppDomain.CurrentDomain.BaseDirectory);
-            var eventHandlerList = AssemblyLoader.TypesOf(typeof(IEventHandler<>));
+            EventBus.Default.Init();
 
-            EventHandlerMapper mapper = new EventHandlerMapper(eventHandlerList);
+            EventBus.Default.Publish( new CreateOrderForCarSourceEvent() { CarSourceID =1, CarSourceName ="car1" , CarSourcePrice = 999 } );
+
+
+
+
+
 
         }
     }
