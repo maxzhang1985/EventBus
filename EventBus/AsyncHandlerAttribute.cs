@@ -5,11 +5,8 @@ using System.Text;
 
 namespace EventBus
 {
-    public interface IEventBus
+    [AttributeUsage(AttributeTargets.Method)]
+    public class AsyncHandlerAttribute : System.Attribute
     {
-        void Publish<TEvent>(TEvent evt) where TEvent : IEvent;
-
-        void Init();
-
     }
 }

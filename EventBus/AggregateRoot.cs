@@ -8,11 +8,13 @@ namespace EventBus
 {
     public class AggregateRoot<TID> : IAggregateRoot<TID>
     {
-        public TID ID { private set; get; }
+        public TID ID {  set; get; }
 
-        public void Publish<TEvent>(TEvent Event) where TEvent : IEvent
+        protected void Publish<TEvent>(TEvent Event) where TEvent : IEvent
         {
-            
+            EventBus.Default.Publish(Event);
         }
+
+
     }
 }

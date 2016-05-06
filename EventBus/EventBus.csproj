@@ -53,8 +53,13 @@
   <ItemGroup>
     <Compile Include="AggregateRoot.cs" />
     <Compile Include="AssemblyLoader.cs" />
+    <Compile Include="AsyncHandlerAttribute.cs" />
+    <Compile Include="Demo\CarSourceOrder.cs" />
+    <Compile Include="Demo\CreateOrderExpressEventHandler.cs" />
     <Compile Include="Demo\CreateOrderForCarSourceEvent.cs" />
     <Compile Include="Demo\CreateOrderFormCarSourceEventHandler.cs" />
+    <Compile Include="Demo\DearCarInfo.cs" />
+    <Compile Include="Demo\OrderCreateExpressEvent.cs" />
     <Compile Include="Demo\TestEvent.cs" />
     <Compile Include="EventBus.cs" />
     <Compile Include="IAggregateRoot.cs" />

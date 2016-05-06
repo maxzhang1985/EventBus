@@ -10,7 +10,7 @@ namespace EventBus
     {
         TID ID { get; }
 
-        void Publish<TEvent>(TEvent Event) where TEvent : IEvent;
+       
 
     }
 }

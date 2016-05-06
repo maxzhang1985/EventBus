@@ -13,12 +13,12 @@ namespace EventBus
 
             EventBus.Default.Init();
 
-            EventBus.Default.Publish( new CreateOrderForCarSourceEvent() { CarSourceID =1, CarSourceName ="car1" , CarSourcePrice = 999 } );
+            CarSourceOrder orderBuss = new CarSourceOrder();
+
+            var neworder = orderBuss.CreateOrder(new DearCarInfo() { ID =1, Name="car1", Price = 10000 }, true);
 
 
-
-
-
+            neworder.CommitOrder();
 
         }
     }

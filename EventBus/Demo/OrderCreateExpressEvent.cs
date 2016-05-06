@@ -5,10 +5,11 @@ using System.Text;
 
 namespace EventBus.Demo
 {
-    public class TestEvent : IEvent
+    public class OrderCreateExpressEvent : IEvent
     {
-        public string Name { set; get; }
+        public int OrderID { set; get; }
 
-       
+
+
     }
 }
